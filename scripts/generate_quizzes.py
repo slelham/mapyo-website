@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 SITE_ROOT = Path(__file__).resolve().parent.parent
-OUTPUT = SITE_ROOT / "data" / "quizzes.json"
+OUTPUT = SITE_ROOT / "assets" / "quizzes.json"
 
 VERSE_RE = re.compile(
     r"^(?:[1-3]\s)?(?:Genesis|Exodus|Exod\.|Leviticus|Lev\.|Numbers|Num\.|"

@@ -178,7 +178,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     const slug = slugFromPath();
-    fetch(`${base}data/quizzes.json`)
+    fetch(`${base}assets/quizzes.json`)
       .then((res) => {
         if (!res.ok) throw new Error('Quiz data not found');
         return res.json();
