@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d1a6e"/>
+      <stop offset="50%" style="stop-color:#20124d"/>
+      <stop offset="100%" style="stop-color:#150c38"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0"/>
+    </radialGradient>
+    <pattern id="cross" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+      <path d="M60 20v80M20 60h80" stroke="#d4af37" stroke-width="0.5" opacity="0.08" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <rect width="1600" height="900" fill="url(#cross)"/>
+  <circle cx="200" cy="150" r="300" fill="#d4af37" opacity="0.03"/>
+  <circle cx="1400" cy="700" r="400" fill="#d4af37" opacity="0.04"/>
+  <text x="800" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="72" fill="#d4af37" opacity="0.12">✝</text>
+</svg>

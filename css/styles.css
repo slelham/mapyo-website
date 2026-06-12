@@ -177,7 +177,7 @@ img {
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://lh3.googleusercontent.com/sitesv/AA5AbUD3tLBBDL5Qgx0OPHG51Dr8R493dN2Xv_La4xgE2qG3lbzOQIybjv2j7f4KviXYx5RSVNx0oTnt6gEl5FCbRiQ6uKsWzSTO6GM280d6vUxcnROrIVhkBCyqe-ZxNLANKrdQ3Fe10FKUyN89ZjUei-AhrWj4x_F4aueeweddGtRBJk450kJX5gHdubj1EXA=w16383');
+  background-image: url('../assets/images/hero-bg.svg');
   background-size: cover;
   background-position: center;
   transform: scale(1.05);
@@ -944,6 +944,19 @@ img {
   height: auto;
   max-height: 320px;
   object-fit: cover;
+}
+
+.page-hero--local {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.page-hero--local img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
 }
 
 .page-content__h1 {
