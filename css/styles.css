@@ -3,22 +3,37 @@
    ============================================ */
 
 :root {
-  --purple: #20124d;
-  --purple-light: #2d1a6e;
-  --purple-dark: #150c38;
-  --gold: #d4af37;
-  --gold-light: #e8c96a;
-  --gold-dark: #b8942e;
-  --white: #f9f9f9;
-  --gray: #a0a0b0;
-  --dark: #1c1c1c;
-  --radius: 12px;
-  --radius-lg: 20px;
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.25);
+  /* Mar Addai Parish palette — matched to maraddai.org */
+  --bg: #ffffff;
+  --bg-alt: #e7d9cb;
+  --bg-section: #f5f0ea;
+  --text: #000000;
+  --text-muted: #5a5a5a;
+  --text-soft: rgba(0, 0, 0, 0.65);
+  --accent: #3d4435;
+  --accent-light: #4f5645;
+  --accent-dark: #2e3329;
+  --accent-secondary: #c2c8cc;
+  --cream: #e7d9cb;
+
+  /* Legacy variable aliases */
+  --purple: var(--bg);
+  --purple-light: var(--bg-alt);
+  --purple-dark: var(--bg-section);
+  --gold: var(--accent);
+  --gold-light: var(--accent-light);
+  --gold-dark: var(--accent-dark);
+  --white: var(--text);
+  --gray: var(--text-muted);
+  --dark: #ffffff;
+
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-body: 'Open Sans', system-ui, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Almarai', system-ui, sans-serif;
+  --font-display: 'Libre Baskerville', Georgia, serif;
 }
 
 *, *::before, *::after {
@@ -34,9 +49,9 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-weight: 300;
-  color: var(--white);
-  background: var(--purple);
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -66,14 +81,16 @@ img {
   right: 0;
   z-index: 1000;
   padding: 0 24px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
   transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
 }
 
 .nav.scrolled {
-  background: rgba(32, 18, 77, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   padding: 0;
 }
 
@@ -193,9 +210,9 @@ img {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(32, 18, 77, 0.7) 0%,
-    rgba(32, 18, 77, 0.85) 50%,
-    rgba(21, 12, 56, 0.95) 100%
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(231, 217, 203, 0.75) 50%,
+    rgba(231, 217, 203, 0.92) 100%
   );
 }
 
@@ -221,21 +238,21 @@ img {
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 20px;
-  color: var(--white);
+  color: var(--text);
 }
 
 .hero__subtitle {
   font-size: 1.125rem;
-  color: rgba(249, 249, 249, 0.75);
+  color: var(--text-soft);
   margin-bottom: 40px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .hero__cta {
   display: inline-block;
   padding: 14px 36px;
-  background: var(--gold);
-  color: var(--dark);
+  background: var(--accent);
+  color: #ffffff;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -247,7 +264,7 @@ img {
 .hero__cta:hover {
   background: var(--gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 24px rgba(61, 68, 53, 0.2);
 }
 
 .hero__scroll {
@@ -290,8 +307,8 @@ img {
 }
 
 .info__card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: var(--bg-section);
+  border: 1px solid rgba(61, 68, 53, 0.2);
   border-radius: var(--radius-lg);
   padding: 48px;
   text-align: center;
@@ -359,7 +376,7 @@ img {
 
 .section-header p {
   font-size: 1.05rem;
-  color: rgba(249, 249, 249, 0.65);
+  color: rgba(0, 0, 0, 0.65);
   max-width: 560px;
   margin: 0 auto;
 }
@@ -367,19 +384,19 @@ img {
 /* ---- Bible Studies ---- */
 .studies {
   padding: 100px 0;
-  background: var(--purple-dark);
+  background: var(--bg-alt);
 }
 
 .study-group {
   margin-bottom: 16px;
-  border: 1px solid rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(61, 68, 53, 0.12);
   border-radius: var(--radius);
   overflow: hidden;
   transition: border-color var(--transition);
 }
 
 .study-group:hover {
-  border-color: rgba(212, 175, 55, 0.25);
+  border-color: rgba(61, 68, 53, 0.25);
 }
 
 .study-group__header {
@@ -388,7 +405,7 @@ img {
   align-items: center;
   gap: 16px;
   padding: 20px 24px;
-  background: rgba(255, 255, 255, 0.03);
+  background: #ffffff;
   border: none;
   cursor: pointer;
   color: var(--white);
@@ -398,7 +415,7 @@ img {
 }
 
 .study-group__header:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--bg-section);
 }
 
 .study-group__badge {
@@ -406,7 +423,7 @@ img {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 4px 12px;
-  background: rgba(212, 175, 55, 0.15);
+  background: rgba(61, 68, 53, 0.15);
   color: var(--gold);
   border-radius: 50px;
   white-space: nowrap;
@@ -468,15 +485,15 @@ img {
   flex-direction: column;
   gap: 4px;
   padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(61, 68, 53, 0.12);
   border-radius: var(--radius);
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
 
 .week-card:hover {
-  background: rgba(212, 175, 55, 0.1);
-  border-color: rgba(212, 175, 55, 0.3);
+  background: rgba(61, 68, 53, 0.1);
+  border-color: rgba(61, 68, 53, 0.3);
   transform: translateY(-2px);
 }
 
@@ -504,7 +521,7 @@ img {
   align-items: center;
   justify-content: space-between;
   padding: 14px 20px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: var(--radius);
   transition: background var(--transition);
   gap: 16px;
@@ -512,7 +529,7 @@ img {
 }
 
 .book-item:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--bg-section);
 }
 
 .book-item__title {
@@ -535,20 +552,20 @@ img {
 .book-item__weeks a {
   font-size: 0.75rem;
   padding: 4px 10px;
-  background: rgba(212, 175, 55, 0.12);
+  background: rgba(61, 68, 53, 0.12);
   color: var(--gold);
   border-radius: 50px;
   transition: background var(--transition);
 }
 
 .book-item__weeks a:hover {
-  background: rgba(212, 175, 55, 0.25);
+  background: rgba(61, 68, 53, 0.25);
 }
 
 /* ---- Worksheets ---- */
 .worksheets {
   padding: 100px 0;
-  background: var(--purple);
+  background: var(--bg);
 }
 
 .worksheet-tabs {
@@ -562,7 +579,7 @@ img {
 .worksheet-tab {
   padding: 10px 24px;
   background: transparent;
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(61, 68, 53, 0.25);
   color: var(--white);
   font-family: var(--font-body);
   font-size: 0.85rem;
@@ -579,9 +596,9 @@ img {
 }
 
 .worksheet-tab.active {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--dark);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -610,8 +627,8 @@ img {
   align-items: center;
   gap: 14px;
   padding: 18px 22px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(61, 68, 53, 0.12);
   border-radius: var(--radius);
   font-size: 0.9rem;
   transition: all var(--transition);
@@ -625,15 +642,15 @@ img {
 }
 
 .download-card:hover {
-  background: rgba(212, 175, 55, 0.1);
-  border-color: rgba(212, 175, 55, 0.3);
+  background: rgba(61, 68, 53, 0.1);
+  border-color: rgba(61, 68, 53, 0.3);
   transform: translateY(-2px);
 }
 
 /* ---- Contact ---- */
 .contact {
   padding: 100px 0;
-  background: var(--purple-dark);
+  background: var(--bg-section);
 }
 
 .contact__grid {
@@ -643,8 +660,8 @@ img {
 }
 
 .contact__form-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(61, 68, 53, 0.15);
   border-radius: var(--radius-lg);
   padding: 40px;
 }
@@ -658,7 +675,7 @@ img {
 }
 
 .contact__form-card p {
-  color: rgba(249, 249, 249, 0.65);
+  color: rgba(0, 0, 0, 0.65);
   margin-bottom: 28px;
   font-size: 0.95rem;
 }
@@ -676,14 +693,14 @@ img {
 }
 
 .btn--gold {
-  background: var(--gold);
-  color: var(--dark);
+  background: var(--accent);
+  color: #ffffff;
 }
 
 .btn--gold:hover {
   background: var(--gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 6px 20px rgba(61, 68, 53, 0.15);
 }
 
 .btn--outline {
@@ -693,7 +710,7 @@ img {
 }
 
 .btn--outline:hover {
-  background: rgba(212, 175, 55, 0.1);
+  background: rgba(61, 68, 53, 0.1);
 }
 
 .team-grid {
@@ -703,15 +720,15 @@ img {
 }
 
 .team-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(61, 68, 53, 0.12);
   border-radius: var(--radius);
   padding: 24px;
   transition: border-color var(--transition);
 }
 
 .team-card:hover {
-  border-color: rgba(212, 175, 55, 0.2);
+  border-color: rgba(61, 68, 53, 0.2);
 }
 
 .team-card__role {
@@ -731,7 +748,7 @@ img {
 .team-card__link {
   display: block;
   font-size: 0.85rem;
-  color: rgba(249, 249, 249, 0.6);
+  color: rgba(0, 0, 0, 0.6);
   margin-bottom: 4px;
   transition: color var(--transition);
 }
@@ -743,8 +760,8 @@ img {
 /* ---- Footer ---- */
 .footer {
   padding: 60px 0 32px;
-  background: var(--purple-dark);
-  border-top: 1px solid rgba(212, 175, 55, 0.1);
+  background: var(--accent);
+  border-top: none;
 }
 
 .footer__inner {
@@ -760,14 +777,14 @@ img {
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--cream);
   display: block;
   margin-bottom: 8px;
 }
 
 .footer__brand p {
   font-size: 0.85rem;
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.75);
   line-height: 1.5;
 }
 
@@ -779,23 +796,23 @@ img {
 
 .footer__links a {
   font-size: 0.85rem;
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.7);
   transition: color var(--transition);
 }
 
 .footer__links a:hover {
-  color: var(--gold);
+  color: var(--cream);
 }
 
 .footer__bottom {
   text-align: center;
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .footer__bottom p {
   font-size: 0.8rem;
-  color: rgba(160, 160, 176, 0.6);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 /* ---- Animations ---- */
@@ -821,7 +838,8 @@ img {
     top: 72px;
     left: 0;
     right: 0;
-    background: rgba(32, 18, 77, 0.98);
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(61, 68, 53, 0.1);
     backdrop-filter: blur(12px);
     flex-direction: column;
     padding: 24px;
@@ -839,7 +857,7 @@ img {
   }
 
   .nav__links li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(61, 68, 53, 0.1);
   }
 
   .nav__links a {
@@ -897,7 +915,7 @@ img {
 .page {
   padding: 100px 0 80px;
   min-height: 60vh;
-  background: var(--purple-dark);
+  background: var(--bg);
 }
 
 .breadcrumb {
@@ -920,7 +938,7 @@ img {
 }
 
 .breadcrumb__sep {
-  color: rgba(160, 160, 176, 0.4);
+  color: rgba(90, 90, 90, 0.4);
 }
 
 .breadcrumb__current {
@@ -936,7 +954,7 @@ img {
   margin-bottom: 40px;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(61, 68, 53, 0.15);
 }
 
 .page-hero img {
@@ -949,7 +967,7 @@ img {
 .page-hero--local {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(61, 68, 53, 0.15);
 }
 
 .page-hero--local img {
@@ -977,7 +995,7 @@ img {
 .page-content p {
   font-size: 1rem;
   line-height: 1.75;
-  color: rgba(249, 249, 249, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   margin-bottom: 16px;
 }
 
@@ -990,19 +1008,19 @@ img {
 .page-content__list li {
   padding: 10px 16px;
   margin-bottom: 6px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.8);
   border-left: 3px solid var(--gold);
   border-radius: 0 var(--radius) var(--radius) 0;
   font-size: 0.95rem;
-  color: rgba(249, 249, 249, 0.85);
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .def-item {
   padding: 14px 20px;
   margin-bottom: 8px;
-  background: rgba(212, 175, 55, 0.08);
+  background: rgba(61, 68, 53, 0.08);
   border-radius: var(--radius);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(61, 68, 53, 0.15);
 }
 
 .def-item strong {
@@ -1011,7 +1029,7 @@ img {
 }
 
 .def-item__desc {
-  color: rgba(249, 249, 249, 0.65);
+  color: rgba(0, 0, 0, 0.65);
   font-size: 0.9rem;
 }
 
@@ -1020,7 +1038,7 @@ img {
   gap: 12px;
   padding: 10px 16px;
   margin-bottom: 6px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: var(--radius);
   flex-wrap: wrap;
 }
@@ -1032,14 +1050,14 @@ img {
 }
 
 .ref-item__verse {
-  color: rgba(249, 249, 249, 0.75);
+  color: rgba(0, 0, 0, 0.75);
   font-size: 0.9rem;
 }
 
 .child-nav {
   margin-top: 48px;
   padding-top: 32px;
-  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-top: 1px solid rgba(61, 68, 53, 0.12);
 }
 
 .child-nav__grid {
@@ -1053,15 +1071,15 @@ img {
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(61, 68, 53, 0.12);
   border-radius: var(--radius);
   transition: all var(--transition);
 }
 
 .child-card:hover {
-  background: rgba(212, 175, 55, 0.1);
-  border-color: rgba(212, 175, 55, 0.3);
+  background: rgba(61, 68, 53, 0.1);
+  border-color: rgba(61, 68, 53, 0.3);
   transform: translateY(-2px);
 }
 
@@ -1085,7 +1103,7 @@ img {
   margin-top: 24px;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(61, 68, 53, 0.15);
 }
 
 .form-embed iframe {
@@ -1101,7 +1119,7 @@ img {
   margin: 24px 0 32px;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(61, 68, 53, 0.2);
   background: #000;
 }
 
@@ -1118,7 +1136,7 @@ img {
 .quiz-section {
   margin-top: 48px;
   padding-top: 40px;
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-top: 1px solid rgba(61, 68, 53, 0.2);
 }
 
 .quiz-section__header {
@@ -1139,8 +1157,8 @@ img {
 }
 
 .quiz-panel {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(61, 68, 53, 0.15);
   border-radius: var(--radius-lg);
   padding: 28px;
 }
@@ -1149,7 +1167,7 @@ img {
   border: none;
   margin: 0 0 28px;
   padding: 0 0 28px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(61, 68, 53, 0.1);
 }
 
 .quiz-question:last-of-type {
@@ -1164,7 +1182,7 @@ img {
 
 @keyframes quiz-highlight {
   0%, 100% { background: transparent; }
-  30%, 70% { background: rgba(212, 175, 55, 0.08); border-radius: var(--radius); }
+  30%, 70% { background: rgba(61, 68, 53, 0.08); border-radius: var(--radius); }
 }
 
 .quiz-question__text {
@@ -1184,7 +1202,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(212, 175, 55, 0.15);
+  background: rgba(61, 68, 53, 0.15);
   color: var(--gold);
   border-radius: 50%;
   font-size: 0.8rem;
@@ -1203,21 +1221,21 @@ img {
   align-items: flex-start;
   gap: 12px;
   padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #ffffff;
+  border: 1px solid rgba(61, 68, 53, 0.12);
   border-radius: var(--radius);
   cursor: pointer;
   transition: all var(--transition);
 }
 
 .quiz-option:hover {
-  background: rgba(212, 175, 55, 0.08);
-  border-color: rgba(212, 175, 55, 0.25);
+  background: rgba(61, 68, 53, 0.08);
+  border-color: rgba(61, 68, 53, 0.25);
 }
 
 .quiz-option:has(input:checked) {
-  background: rgba(212, 175, 55, 0.12);
-  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(61, 68, 53, 0.12);
+  border-color: rgba(61, 68, 53, 0.4);
 }
 
 .quiz-option input {
@@ -1249,7 +1267,7 @@ img {
   gap: 24px;
   margin-bottom: 32px;
   padding-bottom: 28px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(61, 68, 53, 0.1);
 }
 
 .quiz-results__circle {
@@ -1272,7 +1290,7 @@ img {
   position: absolute;
   inset: 6px;
   border-radius: 50%;
-  background: var(--purple-light);
+  background: var(--bg);
 }
 
 .quiz-results__pct {
@@ -1305,7 +1323,7 @@ img {
 .quiz-result-item {
   padding: 18px 20px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(61, 68, 53, 0.12);
 }
 
 .quiz-result-item--correct {
@@ -1359,18 +1377,18 @@ img {
 }
 
 .quiz-result-item__answer--correct {
-  color: #a5d6a7;
+  color: #2e7d32;
 }
 
 .quiz-result-item__answer--wrong {
-  color: #ef9a9a;
+  color: #c62828;
 }
 
 .quiz-result-item__correction {
   margin-top: 12px;
   margin-left: 36px;
   padding: 14px 16px;
-  background: rgba(212, 175, 55, 0.08);
+  background: rgba(61, 68, 53, 0.08);
   border-left: 3px solid var(--gold);
   border-radius: 0 var(--radius) var(--radius) 0;
 }
