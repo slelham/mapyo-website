@@ -1,0 +1,88 @@
+<!--
+  Paste this entire block into your Squarespace MAPYO page Code block.
+  Replace the existing embed code on https://www.maraddai.org/mapyo
+-->
+<style>
+  /* Remove header/footer gap on the MAPYO page */
+  #collection-6a2d60fb0ab0eb12fa99e175 #header,
+  #collection-6a2d60fb0ab0eb12fa99e175 .header,
+  #collection-6a2d60fb0ab0eb12fa99e175 header.Header,
+  #collection-6a2d60fb0ab0eb12fa99e175 #footer-sections {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #collection-6a2d60fb0ab0eb12fa99e175 #siteWrapper,
+  #collection-6a2d60fb0ab0eb12fa99e175 main,
+  #collection-6a2d60fb0ab0eb12fa99e175 article,
+  #collection-6a2d60fb0ab0eb12fa99e175 .sections,
+  #collection-6a2d60fb0ab0eb12fa99e175 .page-section,
+  #collection-6a2d60fb0ab0eb12fa99e175 .content-wrapper,
+  #collection-6a2d60fb0ab0eb12fa99e175 .content,
+  #collection-6a2d60fb0ab0eb12fa99e175 .fluid-engine,
+  #collection-6a2d60fb0ab0eb12fa99e175 .sqs-block,
+  #collection-6a2d60fb0ab0eb12fa99e175 .sqs-block-content,
+  #collection-6a2d60fb0ab0eb12fa99e175 .sqs-code-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+  }
+
+  /* Section was vertically centering the iframe — causes top gap */
+  #collection-6a2d60fb0ab0eb12fa99e175 .page-section,
+  #collection-6a2d60fb0ab0eb12fa99e175 .section-height--medium,
+  #collection-6a2d60fb0ab0eb12fa99e175 .vertical-alignment--middle {
+    min-height: 0 !important;
+    height: auto !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+
+  .mapyo-container {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 0 !important;
+    padding: 0 !important;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .mapyo-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    vertical-align: top;
+  }
+</style>
+
+<div class="mapyo-container">
+  <iframe
+    id="mapyoFrame"
+    src="https://mapyo-website.vercel.app/?embed=1"
+    title="MAPYO — Mar Addai Parish Youth Group"
+    loading="eager">
+  </iframe>
+</div>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'mapyo-resize' || !e.data.height) return;
+    var container = document.querySelector('.mapyo-container');
+    var frame = document.getElementById('mapyoFrame');
+    if (container && frame) {
+      container.style.height = e.data.height + 'px';
+      frame.style.height = e.data.height + 'px';
+    }
+  });
+</script>
