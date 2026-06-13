@@ -4002,33 +4002,6 @@
       }
     ]
   },
-  "contact-us-prayer-requests-questions-comments": {
-    "title": "Contact Us",
-    "questions": [
-      {
-        "question": "How can you submit anonymous questions on this page?",
-        "options": [
-          "Use the anonymous form on this page",
-          "Post on social media",
-          "Email the deacon directly",
-          "Call the youth president only"
-        ],
-        "correct": "Use the anonymous form on this page",
-        "explanation": "The page provides an anonymous Google Form for Bible study and spiritual questions."
-      },
-      {
-        "question": "Which leadership role is part of the MAPYO team on this page?",
-        "options": [
-          "Vice President",
-          "Choir Director",
-          "Sub-deacon & Youth Adviser",
-          "Youth President"
-        ],
-        "correct": "Youth President",
-        "explanation": "The MAPYO leadership team includes a Youth President."
-      }
-    ]
-  },
   "index": {
     "title": "MAPYO",
     "questions": [

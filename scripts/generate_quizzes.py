@@ -20,6 +20,10 @@ VERSE_RE = re.compile(
     re.I,
 )
 
+SKIP_QUIZ_PAGES = {
+    "contact-us-prayer-requests-questions-comments",
+}
+
 SKIP_PATTERNS = re.compile(
     r"^(?:\+\+\+|Topics|Discussion Questions|This Week|CONTINUATION|"
     r"Key Verses|References to|Handouts|Bible Study Worksheets|St\. Matthew|"
@@ -323,14 +327,6 @@ def generate_for_page(slug: str, content: str, title: str) -> List[Dict]:
             "This page hosts the MAPYO structure form for organizational submissions.",
         ))
 
-    if "contact" in slug and len(questions) < 3:
-        add(make_mcq(
-            "How can you submit anonymous questions on this page?",
-            "Use the anonymous form on this page",
-            ["Call the youth president only", "Email the deacon directly", "Post on social media"],
-            "The page provides an anonymous Google Form for Bible study and spiritual questions.",
-        ))
-
     random.shuffle(questions)
     return questions[:8] if len(questions) > 8 else questions
 
@@ -366,15 +362,16 @@ def main():
         title_m = re.search(r"<title>([^<]+)</title>", content)
         title = clean_text(title_m.group(1).split("—")[0].strip()) if title_m else slug
 
-        questions = generate_for_page(slug, content, title)
-        if questions:
-            quizzes[slug] = {"title": title, "questions": questions}
-            print(f"  {slug}: {len(questions)} questions")
+        if slug not in SKIP_QUIZ_PAGES:
+            questions = generate_for_page(slug, content, title)
+            if questions:
+                quizzes[slug] = {"title": title, "questions": questions}
+                print(f"  {slug}: {len(questions)} questions")
 
-        depth = len(path.relative_to(SITE_ROOT).parts) - 1
-        updated = inject_quiz_script(content, depth)
-        if updated != content:
-            path.write_text(updated, encoding="utf-8")
+            depth = len(path.relative_to(SITE_ROOT).parts) - 1
+            updated = inject_quiz_script(content, depth)
+            if updated != content:
+                path.write_text(updated, encoding="utf-8")
 
     OUTPUT.write_text(json.dumps(quizzes, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nWrote {len(quizzes)} quizzes to {OUTPUT}")
