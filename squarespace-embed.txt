@@ -58,7 +58,7 @@ How to use:
     height: 100vh;
     height: 100dvh;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: visible;
     line-height: 0;
   }
 
@@ -73,23 +73,11 @@ How to use:
 
 <div class="mapyo-container">
   <iframe
-    id="mapyoFrame"
     src="https://mapyo-website.vercel.app/?embed=1"
     title="MAPYO — Mar Addai Parish Youth Group"
-    loading="eager">
+    loading="eager"
+    scrolling="yes">
   </iframe>
 </div>
-
-<script>
-  window.addEventListener('message', function (e) {
-    if (!e.data || e.data.type !== 'mapyo-resize' || !e.data.height) return;
-    var container = document.querySelector('.mapyo-container');
-    var frame = document.getElementById('mapyoFrame');
-    if (container && frame) {
-      container.style.height = e.data.height + 'px';
-      frame.style.height = e.data.height + 'px';
-    }
-  });
-</script>
 
 ---------------------------------------- COPY TO HERE ----------------------------------------

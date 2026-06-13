@@ -862,11 +862,17 @@ html.is-embed body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  min-height: 100%;
+}
+
+html.is-embed .fade-up {
+  opacity: 1;
+  transform: none;
 }
 
 html.is-embed .hero {
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 70vh;
+  min-height: 70dvh;
 }
 
 html.is-embed .hero__scroll {

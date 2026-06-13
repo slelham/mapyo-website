@@ -43,18 +43,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (s.id) sectionObserver.observe(s);
   });
 
-  // Fade-up scroll animations
-  const fadeEls = document.querySelectorAll('.fade-up');
-  const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        fadeObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  // Fade-up scroll animations (skip in Squarespace iframe — embed.js reveals content)
+  if (!document.documentElement.classList.contains('is-embed')) {
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  fadeEls.forEach(el => fadeObserver.observe(el));
+    fadeEls.forEach(el => fadeObserver.observe(el));
+  }
 
   // Study group accordions
   document.querySelectorAll('.study-group__header').forEach(header => {

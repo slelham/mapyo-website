@@ -4,25 +4,25 @@
   if (!isEmbed) return;
 
   document.documentElement.classList.add('is-embed');
+  window.MAPYO_EMBED = true;
 
-  function sendHeight() {
-    var height = Math.max(
-      document.documentElement.scrollHeight,
-      document.body ? document.body.scrollHeight : 0
-    );
-    window.parent.postMessage({ type: 'mapyo-resize', height: height }, '*');
+  var style = document.createElement('style');
+  style.textContent =
+    'html.is-embed,html.is-embed body{overflow-y:auto!important}' +
+    'html.is-embed .fade-up{opacity:1!important;transform:none!important}';
+  document.head.appendChild(style);
+
+  function revealContent() {
+    document.querySelectorAll('.fade-up').forEach(function (el) {
+      el.classList.add('visible');
+    });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', sendHeight);
+    document.addEventListener('DOMContentLoaded', revealContent);
   } else {
-    sendHeight();
+    revealContent();
   }
 
-  window.addEventListener('load', sendHeight);
-  window.addEventListener('resize', sendHeight);
-
-  if (window.ResizeObserver && document.body) {
-    new ResizeObserver(sendHeight).observe(document.body);
-  }
+  window.addEventListener('load', revealContent);
 })();
